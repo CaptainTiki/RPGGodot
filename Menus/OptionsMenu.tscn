@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhdk61w4r2m8y"]
+
+[ext_resource type="Script" path="res://Menus/optionsmenu.gd" id="1_7g7qr"]
+
+[node name="Menu_Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7g7qr")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="bn_GameOptions" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Game Options"
+
+[node name="bn_Controls" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Controls"
+
+[node name="bn_Audio" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Audio"
+
+[node name="bn_Video" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Video"
+
+[node name="bn_Back" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Video"

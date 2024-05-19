@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cwlwirhf8rg2x"]
+
+[node name="ScnOverWorld" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+layer_0/name = "Bottom"
+layer_0/z_index = -2
+layer_1/name = "Middle"
+layer_1/z_index = -1
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "Forground"
+layer_2/tile_data = PackedInt32Array()
+layer_3/name = "Overlay"
+layer_3/z_index = 1
+layer_3/tile_data = PackedInt32Array()
