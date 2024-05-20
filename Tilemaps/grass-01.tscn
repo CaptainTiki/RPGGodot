@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://doqjs7fo3k77q"]
+[gd_scene load_steps=5 format=3 uid="uid://doqjs7fo3k77q"]
 
 [ext_resource type="Texture2D" uid="uid://bs11etp1jj87n" path="res://Tilemaps/Sprites/Grass-01.png" id="1_3rw6k"]
+[ext_resource type="Script" path="res://Tilemaps/LevelTilemap.gd" id="2_4dc6i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vt18w"]
 texture = ExtResource("1_3rw6k")
@@ -509,7 +510,7 @@ texture_region_size = Vector2i(32, 32)
 7:4/0 = 0
 7:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 7:4/0/physics_layer_0/angular_velocity = 0.0
-7:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 16, -8, 16, -16, -4, -10, -12, 4, -2, 16, 8)
+7:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 16, 8, 16, 16, -4, 10, -12, -4, -2, -16, 8)
 8:4/0 = 0
 8:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 8:4/0/physics_layer_0/angular_velocity = 0.0
@@ -569,11 +570,11 @@ texture_region_size = Vector2i(32, 32)
 7:5/0 = 0
 7:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 7:5/0/physics_layer_0/angular_velocity = 0.0
-7:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 10, 0, 4, 8, -16, -16, -16, -16, 16, -6, 16)
+7:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 10, 2, 0, 8, -16, -16, -16, -16, 16, -6, 16)
 8:5/0 = 0
 8:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 8:5/0/physics_layer_0/angular_velocity = 0.0
-8:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 10, 0, 4, -8, -16, 16, -16, 16, 16, 6, 16)
+8:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 10, -2, 0, -8, -16, 16, -16, 16, 16, 6, 16)
 9:5/0 = 0
 9:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 9:5/0/physics_layer_0/angular_velocity = 0.0
@@ -732,4 +733,6 @@ sources/1 = SubResource("TileSetAtlasSource_vt18w")
 z_index = -1
 scale = Vector2(1, 0.992388)
 tile_set = SubResource("TileSet_mioch")
+rendering_quadrant_size = 32
 format = 2
+script = ExtResource("2_4dc6i")

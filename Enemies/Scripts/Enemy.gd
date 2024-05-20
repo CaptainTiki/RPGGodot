@@ -1,30 +1,39 @@
-class_name Player extends CharacterBody2D
+class_name Enemy extends CharacterBody2D
+
+signal direction_changed(new_direction : Vector2)
+signal enemy_damaged()
+
+const DIR_4 = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
+
+@export var hp : int = 3
 
 var cardinal_direction : Vector2 = Vector2.DOWN
-const DIR_4 = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
 var direction : Vector2 = Vector2.ZERO
+var player : Player
+var invulnerable : bool = false
 
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
-@onready var state_machine : PlayerStateMachine = $StateMachine
-@onready var player_sprite : Sprite2D = $PlayerSprite
+@onready var sprite : Sprite2D = $Sprite2D
+@onready var state_machine = $EnemyStateMachine
 
-signal DirectionChanged(new_direction:Vector2)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	PlayerManager.player = self
-	state_machine.Initialize(self)
+	state_machine.initialize(self)
+	player = PlayerManager.player
+	pass # Replace with function body.
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):	
-	direction = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down")).normalized()
-
+func _process(_delta):
+	pass
 
 func _physics_process(_delta):
 	move_and_slide()
 
-func SetDirection() -> bool:
-	if direction == Vector2.ZERO: ##if no input from user / char is idle
+func set_direction(_new_direction : Vector2) -> bool:
+	direction = _new_direction
+	if direction == Vector2.ZERO:
 		return false
 	
 	var direction_id : int = int(round((direction + cardinal_direction * 0.1).angle() / TAU * DIR_4.size()))
@@ -34,9 +43,10 @@ func SetDirection() -> bool:
 		return false
 	
 	cardinal_direction = new_dir
-	DirectionChanged.emit(new_dir)
-	player_sprite.scale.x = -1 if cardinal_direction == Vector2.LEFT else 1
+	direction_changed.emit(new_dir)
+	sprite.scale.x = -1 if cardinal_direction == Vector2.LEFT else 1
 	return true
+
 
 func UpdateAnimation(state : String) -> void:
 	animation_player.play(state + "_" + AnimDirection())
