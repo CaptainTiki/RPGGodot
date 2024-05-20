@@ -1,6 +1,7 @@
 class_name Player extends CharacterBody2D
 
 var cardinal_direction : Vector2 = Vector2.DOWN
+const DIR_4 = [Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
 var direction : Vector2 = Vector2.ZERO
 
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
@@ -14,22 +15,19 @@ func _ready():
 	state_machine.Initialize(self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	
+func _process(_delta):	
 	direction = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down")).normalized()
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	move_and_slide()
 
 func SetDirection() -> bool:
-	var new_dir : Vector2 = cardinal_direction
 	if direction == Vector2.ZERO: ##if no input from user / char is idle
 		return false
-	if direction.y == 0:
-		new_dir = Vector2.LEFT if direction.x < 0 else Vector2.RIGHT
-	elif direction.x == 0:
-		new_dir = Vector2.UP if direction.y < 0 else Vector2.DOWN
+	
+	var direction_id : int = int(round((direction + cardinal_direction * 0.1).angle() / TAU * DIR_4.size()))
+	var new_dir = DIR_4[direction_id]
 	
 	if new_dir == cardinal_direction:
 		return false

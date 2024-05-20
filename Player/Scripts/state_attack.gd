@@ -10,7 +10,7 @@ var attacking : bool = false
 @onready var animation_player : AnimationPlayer = $"../../AnimationPlayer"
 @onready var attack_animPlayer : AnimationPlayer = $"../../PlayerSprite/AttackEffectSprite/AnimationPlayer"
 @onready var audio_player : AudioStreamPlayer2D = $"../../Audio/AudioStreamPlayer2D"
-@onready var hurt_box = $"../../Interactions/HurtBox"
+@onready var hurt_box = %AttackHurtBox
 
 
 	
