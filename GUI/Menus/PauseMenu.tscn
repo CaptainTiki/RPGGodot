@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://waapcsmoxhoe"]
 
-[ext_resource type="Script" path="res://Menus/PauseMenu.gd" id="1_66ud3"]
+[ext_resource type="Script" path="res://GUI/Menus/PauseMenu.gd" id="1_66ud3"]
 
 [node name="Menu_Pause" type="Control"]
 layout_mode = 3
