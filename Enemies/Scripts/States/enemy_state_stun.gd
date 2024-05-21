@@ -7,8 +7,8 @@ class_name EnemyStateStun extends EnemyState
 @export_category("AI")
 @export var next_state : EnemyState
 
-var _direction : Vector2
 var _damage_position : Vector2 = Vector2.ZERO
+var _direction : Vector2
 var _animation_finished : bool = false
 
 func init() -> void:

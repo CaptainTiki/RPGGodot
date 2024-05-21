@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://c4oppo2585s27"]
+[gd_scene load_steps=41 format=3 uid="uid://c4oppo2585s27"]
 
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_4c6rh"]
 [ext_resource type="Texture2D" uid="uid://b1eh1ctsv1nsh" path="res://Player/Sprites/PlayerSprite02.png" id="2_16ao6"]
@@ -11,7 +11,6 @@
 [ext_resource type="AudioStream" uid="uid://b733xhaoygfly" path="res://Player/Audio/SwordSwoosh.wav" id="8_684iv"]
 [ext_resource type="PackedScene" uid="uid://5c8kltn24me5" path="res://GeneralNodes/Hurtbox/HurtBox.tscn" id="10_wjrxt"]
 [ext_resource type="Script" path="res://Player/Scripts/player_Camera.gd" id="11_cofdb"]
-[ext_resource type="Script" path="res://Player/Scripts/state_stun.gd" id="12_gn1bh"]
 [ext_resource type="PackedScene" uid="uid://1mmcx8eegbjn" path="res://GeneralNodes/Hitbox/HitBox.tscn" id="12_wj84p"]
 [ext_resource type="AudioStream" uid="uid://tibjwo3m8ng7" path="res://Player/Audio/hit_player.wav" id="13_iayce"]
 
@@ -585,7 +584,6 @@ debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="HitBox" parent="PlayerSprite" instance=ExtResource("12_wj84p")]
 position = Vector2(0, 22)
-collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerSprite/HitBox"]
 position = Vector2(0, -10)
@@ -611,7 +609,6 @@ script = ExtResource("6_oq6yw")
 attack_sound = ExtResource("8_684iv")
 
 [node name="Stun" type="Node" parent="StateMachine"]
-script = ExtResource("12_gn1bh")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 editor_draw_limits = true

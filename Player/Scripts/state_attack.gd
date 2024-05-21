@@ -15,10 +15,10 @@ var attacking : bool = false
 
 	
 ## What happens when the player enters this state
-func Enter() -> void:
-	player.UpdateAnimation("attack")
+func enter() -> void:
+	player.update_animation("attack")
 	animation_player.animation_finished.connect(endAttack)
-	attack_animPlayer.play("attack_" + player.AnimDirection())
+	attack_animPlayer.play("attack_" + player.anim_direction())
 	audio_player.stream = attack_sound
 	audio_player.pitch_scale = randf_range(0.9, 1.1)
 	audio_player.play()
@@ -28,14 +28,14 @@ func Enter() -> void:
 	hurt_box.monitoring = true
 
 ## What happens when the player leaves this state
-func Exit() -> void:
+func exit() -> void:
 	animation_player.animation_finished.disconnect(endAttack)
 	attacking = false
 	hurt_box.monitoring = false
 	pass
 
 ## What happens with input events in this State
-func Process(_delta : float) -> State:	
+func process(_delta : float) -> State:	
 	player.velocity -= player.velocity * decel_speed * _delta
 	
 	if attacking == false:
@@ -47,11 +47,11 @@ func Process(_delta : float) -> State:
 	return null
 
 ## What happens during the _physics_process update in this State
-func Physics(_delta : float) -> State:
+func physics(_delta : float) -> State:
 	return null
 
 ## What happens with input events in this State
-func HandleInput(_event : InputEvent) -> State:
+func handle_input(_event : InputEvent) -> State:
 	return null
 
 func endAttack(_animName : String) -> void:
