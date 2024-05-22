@@ -1,12 +1,40 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjiamfr087apk"]
+[gd_scene load_steps=8 format=3 uid="uid://bjiamfr087apk"]
 
 [ext_resource type="Script" path="res://GUI/Menus/Pause_Menu/pause_menu.gd" id="1_syncg"]
+[ext_resource type="Texture2D" uid="uid://b210822d6vr8k" path="res://Items/Sprites/items.png" id="2_cdby8"]
+[ext_resource type="PackedScene" uid="uid://cj36flq2pwrri" path="res://GUI/Menus/Pause_Menu/Inventory/inventory_slot.tscn" id="3_j0cyt"]
+[ext_resource type="Script" path="res://GUI/Menus/Pause_Menu/Inventory/Scripts/inventory_UI.gd" id="3_k4twd"]
+[ext_resource type="Resource" uid="uid://d364b853pds50" path="res://GUI/Menus/Pause_Menu/Inventory/player_inventory.tres" id="4_fhjrl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2guel"]
+atlas = ExtResource("2_cdby8")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6onfo"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = SubResource("AtlasTexture_2guel")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_syncg")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,31 +42,74 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.188235, 0.188235, 0.188235, 0.666667)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -52.0
-offset_top = -53.5
-offset_right = 52.0
-offset_bottom = 53.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -48.0
+offset_right = 174.0
+offset_bottom = -17.0
+grow_vertical = 0
 
-[node name="bn_Save" type="Button" parent="VBoxContainer"]
+[node name="bn_Save" type="Button" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 text = "Save"
 
-[node name="bn_Load" type="Button" parent="VBoxContainer"]
+[node name="bn_Load" type="Button" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 text = "Load"
 
-[node name="Label" type="Label" parent="."]
-offset_left = 188.0
-offset_top = 36.0
-offset_right = 292.0
-offset_bottom = 59.0
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 11.0
+offset_right = 106.0
+offset_bottom = 34.0
 text = "paused"
 horizontal_alignment = 1
+
+[node name="lbl_itemDescription" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 153.0
+offset_right = 212.0
+offset_bottom = 210.0
+theme_override_font_sizes/font_size = 12
+text = "This red drink restores your health! "
+autowrap_mode = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 47.0
+offset_right = 219.0
+offset_bottom = 135.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_6onfo")
+
+[node name="GridContainer" type="GridContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+columns = 5
+script = ExtResource("3_k4twd")
+data = ExtResource("4_fhjrl")
+
+[node name="InventorySlot" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_j0cyt")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_j0cyt")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_j0cyt")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_j0cyt")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_j0cyt")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_j0cyt")]
+layout_mode = 2
