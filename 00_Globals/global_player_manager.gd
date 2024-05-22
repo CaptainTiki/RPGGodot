@@ -15,6 +15,14 @@ func add_player_instance() -> void:
 	add_child(player)
 	pass
 
+func set_player_health(hp: int, max_hp: int) -> void:
+	# set max first so hp doesn't get clamped
+	player.max_hp = max_hp
+	player.hp = hp
+	#update UI - but don't change the HP
+	player.update_hp(0)
+	pass
+
 func set_player_position(_new_pos : Vector2) -> void:
 	player.global_position = _new_pos
 
