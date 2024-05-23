@@ -79,7 +79,6 @@ offset_top = 153.0
 offset_right = 212.0
 offset_bottom = 210.0
 theme_override_font_sizes/font_size = 12
-text = "This red drink restores your health! "
 autowrap_mode = 3
 
 [node name="PanelContainer" type="PanelContainer" parent="Control"]
@@ -113,3 +112,6 @@ layout_mode = 2
 
 [node name="InventorySlot6" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_j0cyt")]
 layout_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
+max_polyphony = 4

@@ -6,6 +6,7 @@ signal hidden
 @onready var bn_save = $Control/HBoxContainer/bn_Save
 @onready var bn_load = $Control/HBoxContainer/bn_Load
 @onready var lbl_item_description: Label = $Control/lbl_itemDescription
+@onready var audio_stream_player = $Control/AudioStreamPlayer
 
 var is_paused : bool = false
 
@@ -55,3 +56,8 @@ func _on_load_pressed() -> void:
 
 func update_item_description(new_text : String) -> void:
 	lbl_item_description.text = new_text
+
+func play_audio(audio: AudioStream) -> void:
+	audio_stream_player.stream = audio
+	audio_stream_player.play()
+
