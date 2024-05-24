@@ -25,7 +25,9 @@ func enter() -> void:
 	attacking = true
 	
 	await get_tree().create_timer(0.075).timeout #timer to wait until attack is most way through swing
-	hurt_box.monitoring = true
+	
+	if attacking: #keeps the player hurtbox from staying on during the await functions
+		hurt_box.monitoring = true
 
 ## What happens when the player leaves this state
 func exit() -> void:
