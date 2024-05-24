@@ -1,8 +1,9 @@
 @tool
-class_name ItemPickup extends Node2D
+class_name ItemPickup extends CharacterBody2D
 
 @export var item_data : ItemData :
 	set = _set_item_data
+@export var mass : int  = 4
 
 @onready var area_2d = $Area2D
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
@@ -14,6 +15,15 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 	area_2d.body_entered.connect(_on_body_entered)
+
+func _physics_process(delta : float) -> void:
+	#get the collision info - in case we hit the wall
+	var collision_info = move_and_collide(velocity * delta)
+	#if there IS collision info - bounce opposite of the "normal (direction)" of the collision
+	if collision_info:
+		velocity = velocity.bounce(collision_info.get_normal())
+		print(velocity)
+	velocity -= velocity * delta * 4
 
 func _on_body_entered(b) -> void:
 	if b is Player:

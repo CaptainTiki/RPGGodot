@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dnc66fwa7668p"]
+[gd_scene load_steps=40 format=3 uid="uid://dnc66fwa7668p"]
 
 [ext_resource type="Texture2D" uid="uid://dcq1aoyj3ubhf" path="res://Enemies/Slime/Slime.png" id="1_akg50"]
 [ext_resource type="Script" path="res://Enemies/Scripts/Enemy.gd" id="1_hrgpj"]
@@ -13,6 +13,10 @@
 [ext_resource type="AudioStream" uid="uid://bg0s6b26m0ejt" path="res://Enemies/Slime/hit_00.wav" id="7_yotto"]
 [ext_resource type="Script" path="res://Enemies/Scripts/States/enemy_state_stun.gd" id="11_sb6jh"]
 [ext_resource type="Script" path="res://Enemies/Scripts/States/enemy_state_destroy.gd" id="12_c2msy"]
+[ext_resource type="Resource" uid="uid://d4h067u3d4dsm" path="res://Items/apple.tres" id="13_d3i3y"]
+[ext_resource type="Script" path="res://Enemies/Scripts/drop_data.gd" id="14_s6nbn"]
+[ext_resource type="Resource" uid="uid://du4clcxbmhcdo" path="res://Items/gem.tres" id="15_18f32"]
+[ext_resource type="Resource" uid="uid://bpua6lqkcf84t" path="res://Items/potion.tres" id="16_so20x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q8sfc"]
 radius = 12.0
@@ -767,6 +771,27 @@ _data = {
 "walk_up": SubResource("Animation_qox2b")
 }
 
+[sub_resource type="Resource" id="Resource_eq5eh"]
+script = ExtResource("14_s6nbn")
+item = ExtResource("13_d3i3y")
+probability = 50.0
+min_ammount = 1
+max_ammount = 2
+
+[sub_resource type="Resource" id="Resource_k1j82"]
+script = ExtResource("14_s6nbn")
+item = ExtResource("15_18f32")
+probability = 75.0
+min_ammount = 1
+max_ammount = 3
+
+[sub_resource type="Resource" id="Resource_6q27j"]
+script = ExtResource("14_s6nbn")
+item = ExtResource("16_so20x")
+probability = 5.0
+min_ammount = 1
+max_ammount = 1
+
 [node name="Slime" type="CharacterBody2D"]
 collision_layer = 256
 collision_mask = 16
@@ -835,6 +860,7 @@ next_state = NodePath("../Idle")
 
 [node name="Destroy" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("12_c2msy")
+drops = Array[ExtResource("14_s6nbn")]([SubResource("Resource_eq5eh"), SubResource("Resource_k1j82"), SubResource("Resource_6q27j")])
 
 [node name="Wander" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("next_state")]
 script = ExtResource("6_1cya0")
