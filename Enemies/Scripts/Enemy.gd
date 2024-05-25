@@ -51,11 +51,11 @@ func set_direction(_new_direction : Vector2) -> bool:
 	return true
 
 
-func UpdateAnimation(state : String) -> void:
-	animation_player.play(state + "_" + AnimDirection())
+func update_animation(state : String) -> void:
+	animation_player.play(state + "_" + anim_direction())
 	pass
 
-func AnimDirection() -> String:
+func anim_direction() -> String:
 	if cardinal_direction == Vector2.DOWN:
 		return "down"
 	elif cardinal_direction == Vector2.UP:

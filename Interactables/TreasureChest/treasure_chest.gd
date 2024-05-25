@@ -11,6 +11,7 @@ var is_open : bool = false
 @onready var label: Label = $itemSprite/Label
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var interact_area: Area2D = $InteractArea
+@onready var is_open_data: PersistantDataHandler = $PersitantDataIsOpen
 
 
 func _ready() -> void:
@@ -23,6 +24,8 @@ func _ready() -> void:
 	#ingame stuff here
 	interact_area.area_entered.connect(on_area_enter)
 	interact_area.area_exited.connect(on_area_exit)
+	is_open_data.data_loaded.connect(set_chest_state)
+	set_chest_state()
 	pass
 
 func player_interact() -> void:
@@ -30,6 +33,7 @@ func player_interact() -> void:
 		return #if the chest is already open - just return
 	
 	is_open = true #if it wasn't open - open it now
+	is_open_data.set_value() #set the persistance data
 	animation_player.play("open_chest")
 	if item_data and quantity > 0:
 		PlayerManager.INVENTORY_DATA.add_item(item_data, quantity)
@@ -39,7 +43,14 @@ func player_interact() -> void:
 	
 	pass
 
-func on_area_enter(a : Area2D) -> void:
+func set_chest_state() -> void:
+	is_open = is_open_data.value
+	if is_open:
+		animation_player.play("opened") #note - these do not play sounds in the animation
+	else:
+		animation_player.play("closed")
+
+func on_area_enter(_a : Area2D) -> void:
 	#when the player enters the area - we need to start listening for the interaction input
 	PlayerManager.interact_pressed.connect(player_interact)
 	pass

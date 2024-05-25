@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bchpv46xkhqi6"
-path="res://.godot/imported/TX Shadow Plant.png-decd024b27075b07f70e8dfd87bf8978.ctex"
+uid="uid://t51wfk8boag5"
+path="res://.godot/imported/goblin.png-2b701b38b32f3ef293b4fa5d96d5fa89.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ArtAssets/Downloaded/TX Shadow Plant.png"
-dest_files=["res://.godot/imported/TX Shadow Plant.png-decd024b27075b07f70e8dfd87bf8978.ctex"]
+source_file="res://Enemies/Goblin/goblin.png"
+dest_files=["res://.godot/imported/goblin.png-2b701b38b32f3ef293b4fa5d96d5fa89.ctex"]
 
 [params]
 

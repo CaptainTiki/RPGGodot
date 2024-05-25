@@ -14,7 +14,9 @@ var current_save : Dictionary = {
 		pos_y = 0
 	},
 	items = [],
-	persistance = [],
+	persistance = [
+		
+	],
 	quests = [],
 	
 }
@@ -67,3 +69,14 @@ func update_scene_path() -> void:
 
 func update_item_data() -> void:
 	current_save.items = PlayerManager.INVENTORY_DATA.get_save_data()
+
+func add_persistant_value(value : String) -> void:
+	#if its already in the arry - don't save - dont want duplicates
+	if check_persistant_value(value) == false: 
+		current_save.persistance.append(value)
+	pass
+
+func check_persistant_value(value : String) -> bool:
+	var p = current_save.persistance as Array
+	#does the array have the value we asked for - returns true / false
+	return p.has(value) 

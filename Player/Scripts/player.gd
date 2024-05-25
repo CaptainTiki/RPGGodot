@@ -72,7 +72,6 @@ func _take_damage(hurt_box: HurtBox) -> void:
 func update_hp(delta : int) -> void:
 	hp = clampi(hp + delta, 0, max_hp)
 	PlayerHud.update_hp(hp, max_hp)
-	print("hp ", hp)
 	pass
 
 func make_invulnerable(_duration : float = 1.0) -> void:
