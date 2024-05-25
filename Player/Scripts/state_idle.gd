@@ -28,6 +28,10 @@ func physics(_delta : float) -> State:
 func handle_input(_event : InputEvent) -> State:
 	if _event.is_action_pressed("attack"):
 		return attack
-	else:
-		return null
+	if _event.is_action_pressed("interact"):
+		PlayerManager.interact_pressed.emit()
+		
+	
+	#in case we get through all the if's - return nothing
+	return null
 
