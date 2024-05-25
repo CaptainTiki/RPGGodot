@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://c4oppo2585s27"]
+[gd_scene load_steps=46 format=3 uid="uid://c4oppo2585s27"]
 
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_4c6rh"]
 [ext_resource type="Texture2D" uid="uid://b1eh1ctsv1nsh" path="res://Player/Sprites/PlayerSprite02.png" id="2_16ao6"]
@@ -15,8 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://1mmcx8eegbjn" path="res://GeneralNodes/Hitbox/HitBox.tscn" id="12_wj84p"]
 [ext_resource type="AudioStream" uid="uid://tibjwo3m8ng7" path="res://Player/Audio/hit_player.wav" id="13_iayce"]
 [ext_resource type="Script" path="res://Player/Scripts/player_interactionsHost.gd" id="14_mimwl"]
+[ext_resource type="Script" path="res://Player/Scripts/push_area.gd" id="15_a50lc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ikjrg"]
+radius = 9.0
 
 [sub_resource type="Animation" id="Animation_bgojy"]
 length = 0.001
@@ -475,6 +477,9 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rcqki"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gbd1"]
+size = Vector2(20, 14)
+
 [sub_resource type="Animation" id="Animation_urso7"]
 length = 0.001
 tracks/0/type = "value"
@@ -550,7 +555,7 @@ wall_min_slide_angle = 0.174533
 script = ExtResource("1_4c6rh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -10)
+position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_ikjrg")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
@@ -584,11 +589,12 @@ collision_mask = 256
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerSprite/AttackHurtBox"]
+position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_38sn1")
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="HitBox" parent="PlayerSprite" instance=ExtResource("12_wj84p")]
-position = Vector2(0, 22)
+position = Vector2(0, 24)
 collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerSprite/HitBox"]
@@ -630,6 +636,7 @@ max_polyphony = 8
 script = ExtResource("14_mimwl")
 
 [node name="Area2D" type="Area2D" parent="Interactions"]
+visible = false
 position = Vector2(0, 10)
 collision_layer = 4
 collision_mask = 0
@@ -638,6 +645,18 @@ monitoring = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/Area2D"]
 shape = SubResource("RectangleShape2D_rcqki")
 debug_color = Color(8.90419e-07, 0.587142, 1.15514e-06, 0.419608)
+
+[node name="PushArea" type="Area2D" parent="Interactions"]
+position = Vector2(0, 3)
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+script = ExtResource("15_a50lc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/PushArea"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_5gbd1")
+debug_color = Color(2.26215e-06, 0.551603, 0.561059, 0.419608)
 
 [node name="EffectAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
