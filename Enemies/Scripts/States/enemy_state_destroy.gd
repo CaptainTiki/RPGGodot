@@ -12,7 +12,7 @@ const PICKUP = preload("res://Items/ItemPickup/item_pickup.tscn")
 @export var drops: Array [DropData]
 
 var _direction : Vector2
-var _animation_finished : bool = false
+# var _animation_finished : bool = false
 var _damage_position : Vector2 = Vector2.ZERO
 
 func init() -> void:

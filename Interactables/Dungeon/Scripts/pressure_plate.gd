@@ -18,12 +18,12 @@ func _ready() -> void:
 	area_2d.body_exited.connect(_on_body_exited)
 	off_rect = sprite.region_rect #this is the region we selected - so it picks the right button
 
-func _on_body_entered(b : Node2D) -> void:
+func _on_body_entered(_b : Node2D) -> void:
 	bodies += 1 #so we know how many character bodies are in the collision area
 	check_is_activated()
 	pass
 
-func _on_body_exited(b : Node2D) -> void:
+func _on_body_exited(_b : Node2D) -> void:
 	bodies -= 1 # ditto
 	check_is_activated()
 	pass

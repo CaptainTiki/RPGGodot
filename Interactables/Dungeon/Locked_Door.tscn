@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://btc4rf24yl5u7"]
+
+[ext_resource type="Script" path="res://Interactables/Dungeon/Scripts/lockedDoor.gd" id="1_qsdsr"]
+[ext_resource type="Texture2D" uid="uid://c53v840dc26pw" path="res://Interactables/Dungeon/dungeon_props.png" id="1_uxnr1"]
+[ext_resource type="Resource" uid="uid://dtmxkajpemkxc" path="res://Items/key_dungeon.tres" id="2_xnrnu"]
+[ext_resource type="AudioStream" uid="uid://brn25gnea1w8t" path="res://Interactables/Dungeon/locked_door.wav" id="3_gs8fn"]
+[ext_resource type="Script" path="res://GeneralNodes/PersistantDataHandler/persistant_data_handler.gd" id="3_nykln"]
+[ext_resource type="AudioStream" uid="uid://b8ufuish7s8bh" path="res://Interactables/Dungeon/unlock_door.wav" id="4_v411l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mk0hg"]
+size = Vector2(63, 76)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0is3f"]
+size = Vector2(44, 41)
+
+[node name="LockedDoor" type="Node2D"]
+script = ExtResource("1_qsdsr")
+key_item = ExtResource("2_xnrnu")
+locked_audio = ExtResource("3_gs8fn")
+open_audio = ExtResource("4_v411l")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(31.5, -43)
+shape = SubResource("RectangleShape2D_mk0hg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(32, -48)
+texture = ExtResource("1_uxnr1")
+hframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="PersistantDataHandler" type="Node" parent="."]
+script = ExtResource("3_nykln")
+
+[node name="InteractArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2(32, -4.5)
+shape = SubResource("RectangleShape2D_0is3f")

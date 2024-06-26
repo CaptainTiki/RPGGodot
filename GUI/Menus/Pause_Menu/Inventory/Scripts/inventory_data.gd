@@ -82,4 +82,14 @@ func item_from_save(save_object : Dictionary) -> SlotData:
 	new_slot.quantity = int(save_object.quantity)
 	return new_slot
 
+func use_item( item : ItemData, count : int = 1 ) -> bool:
+	for s in slots:
+		if s:
+			if s.item_data == item and s.quantity >= count:
+				#we should have the right item and the required quantity
+				s.quantity -= count
+				return true
+	
+	#we either don't have the item, or dont have enough
+	return false
 

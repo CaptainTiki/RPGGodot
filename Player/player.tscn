@@ -559,15 +559,14 @@ position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_ikjrg")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
-position = Vector2(0, -22)
 texture = ExtResource("2_16ao6")
+offset = Vector2(0, -22)
 hframes = 16
 vframes = 3
 
 [node name="ShadowSprite" type="Sprite2D" parent="PlayerSprite"]
 modulate = Color(0, 0, 0, 0.458824)
 show_behind_parent = true
-position = Vector2(0, 22)
 texture = ExtResource("3_vrasj")
 
 [node name="AttackEffectSprite" type="Sprite2D" parent="PlayerSprite"]
@@ -594,7 +593,7 @@ shape = SubResource("CircleShape2D_38sn1")
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="HitBox" parent="PlayerSprite" instance=ExtResource("12_wj84p")]
-position = Vector2(0, 24)
+position = Vector2(0, 10)
 collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerSprite/HitBox"]

@@ -55,7 +55,7 @@ func on_area_enter(_a : Area2D) -> void:
 	PlayerManager.interact_pressed.connect(player_interact)
 	pass
 
-func on_area_exit(a : Area2D) -> void:
+func on_area_exit(_a : Area2D) -> void:
 	#when the player leaves this area - stop listening to the interaction input
 	PlayerManager.interact_pressed.disconnect(player_interact)
 	pass
