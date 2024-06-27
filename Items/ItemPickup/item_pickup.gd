@@ -1,6 +1,8 @@
 @tool
 class_name ItemPickup extends CharacterBody2D
 
+signal pickedUp
+
 @export var item_data : ItemData :
 	set = _set_item_data
 @export var mass : int  = 4
@@ -36,6 +38,7 @@ func item_picked_up() -> void:
 	area_2d.body_entered.disconnect(_on_body_entered)
 	audio_stream_player_2d.play()
 	visible=false
+	pickedUp.emit()
 	await audio_stream_player_2d.finished #wait until the audio is finished
 	queue_free() #then delete
 	pass
