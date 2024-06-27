@@ -14,7 +14,7 @@ layer_0/tile_data = PackedInt32Array(-65536, 589824, 0, 0, 589824, 1, 65536, 589
 [node name="PlayerSpawn" parent="." instance=ExtResource("3_sw2gy")]
 position = Vector2(317, 130)
 
-[node name="LevelTransitionExit" parent="." instance=ExtResource("4_dt31o")]
+[node name="LevelTransitionBottom" parent="." instance=ExtResource("4_dt31o")]
 position = Vector2(224, 218)
 level = "res://Levels/Dungeon01/02.tscn"
 target_transition_area = "LevelTransitionTop"

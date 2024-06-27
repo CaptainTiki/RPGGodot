@@ -27,14 +27,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("InteractArea/CollisionShape2D:disabled")
+tracks/1/path = NodePath("StaticBody2D/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_l6oqa"]
@@ -54,7 +54,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("InteractArea/CollisionShape2D:disabled")
+tracks/1/path = NodePath("StaticBody2D/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -81,14 +81,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("InteractArea/CollisionShape2D:disabled")
+tracks/1/path = NodePath("StaticBody2D/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_v7j7s"]
@@ -108,7 +108,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("InteractArea/CollisionShape2D:disabled")
+tracks/1/path = NodePath("StaticBody2D/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -135,7 +135,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("InteractArea/CollisionShape2D:disabled")
+tracks/1/path = NodePath("StaticBody2D/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -169,7 +169,7 @@ collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(31.5, -43)
+position = Vector2(32, -44)
 shape = SubResource("RectangleShape2D_mk0hg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -193,7 +193,6 @@ collision_layer = 0
 collision_mask = 4
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+[node name="InteractAreaRect" type="CollisionShape2D" parent="InteractArea"]
 position = Vector2(32, -4.5)
 shape = SubResource("RectangleShape2D_0is3f")
-disabled = true
