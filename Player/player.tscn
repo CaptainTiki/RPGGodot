@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://c4oppo2585s27"]
+[gd_scene load_steps=47 format=3 uid="uid://c4oppo2585s27"]
 
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_4c6rh"]
 [ext_resource type="Texture2D" uid="uid://b1eh1ctsv1nsh" path="res://Player/Sprites/PlayerSprite02.png" id="2_16ao6"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://tibjwo3m8ng7" path="res://Player/Audio/hit_player.wav" id="13_iayce"]
 [ext_resource type="Script" path="res://Player/Scripts/player_interactionsHost.gd" id="14_mimwl"]
 [ext_resource type="Script" path="res://Player/Scripts/push_area.gd" id="15_a50lc"]
+[ext_resource type="Script" path="res://Player/Scripts/Abilities/abilities.gd" id="17_qnv06"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ikjrg"]
 radius = 9.0
@@ -570,7 +571,7 @@ show_behind_parent = true
 texture = ExtResource("3_vrasj")
 
 [node name="AttackEffectSprite" type="Sprite2D" parent="PlayerSprite"]
-position = Vector2(0, -10)
+position = Vector2(0, -28)
 texture = ExtResource("3_hy6tv")
 hframes = 12
 frame = 4
@@ -661,3 +662,6 @@ debug_color = Color(2.26215e-06, 0.551603, 0.561059, 0.419608)
 libraries = {
 "": SubResource("AnimationLibrary_4ptqs")
 }
+
+[node name="Abilities" type="Node" parent="."]
+script = ExtResource("17_qnv06")
