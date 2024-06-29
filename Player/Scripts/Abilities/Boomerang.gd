@@ -10,8 +10,10 @@ var state
 
 @export var acceleration : float = 500.0
 @export var max_speed : float = 400.0
+@export var catch_audio : AudioStream
 
 @onready var animation_player = $AnimationPlayer
+@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 
 func _ready() -> void:
@@ -31,10 +33,13 @@ func _physics_process(delta : float) -> void:
 		speed += acceleration * delta
 		position += direction * speed * delta
 		if global_position.distance_to(player.global_position) <= 10:
+			PlayerManager.play_audio(catch_audio)
 			queue_free()
 		pass
 	
-	
+	var speedRatio = speed / max_speed
+	audio_player.pitch_scale = 1 - (speedRatio * 0.10)
+	animation_player.speed_scale = 1 - (speedRatio * 0.5)
 	pass
 
 
@@ -43,5 +48,6 @@ func throw(throw_direction : Vector2) -> void:
 	speed = max_speed
 	state = State.THROW
 	animation_player.play("boomerang")
+	PlayerManager.play_audio(catch_audio)
 	visible = true
 	pass
