@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://c4oppo2585s27"]
+[gd_scene load_steps=49 format=3 uid="uid://c4oppo2585s27"]
 
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_4c6rh"]
 [ext_resource type="Texture2D" uid="uid://b1eh1ctsv1nsh" path="res://Player/Sprites/PlayerSprite02.png" id="2_16ao6"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://Player/Scripts/player_interactionsHost.gd" id="14_mimwl"]
 [ext_resource type="Script" path="res://Player/Scripts/push_area.gd" id="15_a50lc"]
 [ext_resource type="Script" path="res://Player/Scripts/Abilities/abilities.gd" id="17_qnv06"]
+[ext_resource type="PackedScene" uid="uid://c0mltdwea18mp" path="res://GeneralNodes/Item Magnet/item_magnet.tscn" id="18_1pi10"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ikjrg"]
 radius = 9.0
@@ -548,6 +549,9 @@ _data = {
 "default": SubResource("Animation_yxwdt")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_75b2i"]
+radius = 37.0
+
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_mask = 16
@@ -589,7 +593,7 @@ collision_mask = 256
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerSprite/AttackHurtBox"]
-position = Vector2(0, -1)
+position = Vector2(0, -41)
 shape = SubResource("CircleShape2D_38sn1")
 debug_color = Color(1, 0, 0, 0.419608)
 
@@ -665,3 +669,9 @@ libraries = {
 
 [node name="Abilities" type="Node" parent="."]
 script = ExtResource("17_qnv06")
+
+[node name="ItemMagnet" parent="." instance=ExtResource("18_1pi10")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemMagnet"]
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_75b2i")
