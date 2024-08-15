@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dft61edicjl12"]
+[gd_scene load_steps=11 format=3 uid="uid://dft61edicjl12"]
 
 [ext_resource type="Script" path="res://Levels/Scripts/level.gd" id="1_glst4"]
 [ext_resource type="AudioStream" uid="uid://barmulfqfy7u6" path="res://Levels/Music/example_music_01.ogg" id="2_bjmaa"]
@@ -10,7 +10,6 @@
 [ext_resource type="Resource" uid="uid://bpua6lqkcf84t" path="res://Items/potion.tres" id="7_ge7qr"]
 [ext_resource type="PackedScene" uid="uid://c0auuocncb36y" path="res://NPC/npc.tscn" id="9_7tlpo"]
 [ext_resource type="PackedScene" uid="uid://clq8k0tnam46n" path="res://NPC/npc_behavior_wander.tscn" id="10_4bdw3"]
-[ext_resource type="Resource" uid="uid://c77vgo64xh3dy" path="res://NPC/00_npcs/npc01.tres" id="10_noahx"]
 
 [node name="02" type="Node2D"]
 script = ExtResource("1_glst4")
@@ -64,6 +63,6 @@ item_data = ExtResource("7_ge7qr")
 
 [node name="Npc" parent="." instance=ExtResource("9_7tlpo")]
 position = Vector2(127, 152)
-npc_resource = ExtResource("10_noahx")
 
 [node name="NpcBehaviorWander" parent="Npc" instance=ExtResource("10_4bdw3")]
+idle_duration = 2.0
