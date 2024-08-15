@@ -11,12 +11,13 @@ config_version=5
 [application]
 
 config/name="RPGGodot"
-run/main_scene="res://Levels/Area01/01.tscn"
+run/main_scene="res://Levels/Area01/02.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
+AudioManager="*res://00_Globals/global_audio_manager.gd"
 LevelManager="*res://00_Globals/GlobalLevelManager.gd"
 PlayerHud="*res://GUI/PlayerHUD/player_HUD.tscn"
 PlayerManager="*res://00_Globals/global_player_manager.gd"
