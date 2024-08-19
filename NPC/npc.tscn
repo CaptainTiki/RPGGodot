@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://c0auuocncb36y"]
 
-[ext_resource type="Script" path="res://NPC/scripts/npc.gd" id="1_vlayl"]
-[ext_resource type="Texture2D" uid="uid://cspr4cbh1bop" path="res://NPC/sprites/npc_sprite.png" id="2_xddxt"]
+[ext_resource type="Script" path="res://npc/scripts/npc.gd" id="1_vlayl"]
+[ext_resource type="Texture2D" uid="uid://cspr4cbh1bop" path="res://npc/sprites/npc_sprite.png" id="2_xddxt"]
 [ext_resource type="Texture2D" uid="uid://4gga7s8n86oh" path="res://Player/Sprites/Shadow.png" id="3_d0iir"]
 
 [sub_resource type="Animation" id="Animation_n6m2v"]
