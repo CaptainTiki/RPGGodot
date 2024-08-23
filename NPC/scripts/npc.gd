@@ -1,5 +1,5 @@
 @tool
-@icon("res://NPC/icons/npc.svg")
+@icon("res://npc/icons/npc.svg")
 class_name NPC extends CharacterBody2D
 
 signal do_behavior_enabled
@@ -22,7 +22,7 @@ func _ready() -> void:
 	do_behavior_enabled.emit()
 	pass
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 
