@@ -37,6 +37,21 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
+[sub_resource type="Animation" id="Animation_1tju6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_m2qbj"]
 resource_name = "default"
 loop_mode = 1
@@ -51,21 +66,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1.2, 1.4, 1.4, 1), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_1tju6"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5pbdg"]
@@ -114,7 +114,7 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_7j43t")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="DialogUI/PanelContainer"]
+[node name="DialogTextLabel" type="RichTextLabel" parent="DialogUI/PanelContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.439216, 0.396078, 0.321569, 1)
 theme_override_fonts/normal_font = ExtResource("3_lhd88")
@@ -125,7 +125,7 @@ text = "Example [b]Text[/b]
 [shake][color=orangered]Colored shakeyText[/color][/shake]"
 scroll_active = false
 
-[node name="RichTextLabel" type="RichTextLabel" parent="DialogUI"]
+[node name="NameLabel" type="RichTextLabel" parent="DialogUI"]
 layout_mode = 0
 offset_left = 102.0
 offset_top = 167.0
@@ -149,22 +149,23 @@ hframes = 4
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="DialogUI"]
 
-[node name="DialogProgressIndicator" type="PanelContainer" parent="."]
+[node name="DialogProgressIndicator" type="PanelContainer" parent="DialogUI"]
 self_modulate = Color(9.14484e-07, 0.623755, 0.458668, 1)
+layout_mode = 0
 offset_left = 430.0
 offset_top = 249.0
 offset_right = 474.0
 offset_bottom = 265.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_51sk8")
 
-[node name="Label" type="Label" parent="DialogProgressIndicator"]
+[node name="DialogProgressLabel" type="Label" parent="DialogUI/DialogProgressIndicator"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_x83xk")
 text = "NEXT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogProgressIndicator"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogUI/DialogProgressIndicator"]
 libraries = {
 "": SubResource("AnimationLibrary_5pbdg")
 }

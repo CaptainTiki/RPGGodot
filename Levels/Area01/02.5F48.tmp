@@ -15,8 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://d3458siqyyb61" path="res://Interactables/dialog/dialog_interaction.tscn" id="12_0u4co"]
 [ext_resource type="Resource" uid="uid://bkiixkl71o0l3" path="res://npc/00_npcs/npc02.tres" id="12_fso8a"]
 [ext_resource type="PackedScene" uid="uid://dyhn3j7qk4dqw" path="res://npc/patrol_location.tscn" id="12_sy2a6"]
-[ext_resource type="PackedScene" uid="uid://cgrna5687tdma" path="res://Interactables/dialog/dialog_text.tscn" id="13_714pr"]
-[ext_resource type="Resource" uid="uid://bw1cnq6285or8" path="res://npc/00_npcs/hero.tres" id="14_hm3hk"]
+[ext_resource type="PackedScene" uid="uid://cgrna5687tdma" path="res://Interactables/dialog/dialog_text.tscn" id="13_cnxvr"]
+[ext_resource type="Resource" uid="uid://bw1cnq6285or8" path="res://npc/00_npcs/hero.tres" id="14_dw541"]
 
 [node name="02" type="Node2D"]
 script = ExtResource("1_glst4")
@@ -77,15 +77,15 @@ idle_duration = 2.0
 
 [node name="DialogInteraction" parent="Npc" instance=ExtResource("12_0u4co")]
 
-[node name="DialogText" parent="Npc/DialogInteraction" instance=ExtResource("13_714pr")]
-text = "New Chat, [b]who dis?[/b]"
+[node name="DialogText" parent="Npc/DialogInteraction" instance=ExtResource("13_cnxvr")]
+text = "Hello! Who are you?"
 
-[node name="DialogText2" parent="Npc/DialogInteraction" instance=ExtResource("13_714pr")]
-text = "I'mma hero yo!"
-npc_info = ExtResource("14_hm3hk")
+[node name="DialogText2" parent="Npc/DialogInteraction" instance=ExtResource("13_cnxvr")]
+text = "I'm the [wave]Hero![/wave]"
+npc_info = ExtResource("14_dw541")
 
-[node name="DialogText3" parent="Npc/DialogInteraction" instance=ExtResource("13_714pr")]
-text = "[shake]neato!![/shake]"
+[node name="DialogText3" parent="Npc/DialogInteraction" instance=ExtResource("13_cnxvr")]
+text = "Fantastic! we [shake]NEED[/shake] a [b]hero![/b]"
 
 [node name="Npc2" parent="." instance=ExtResource("9_7tlpo")]
 position = Vector2(394, 186)
